@@ -4,13 +4,16 @@ import styled from "styled-components";
 import Header from "../../components/Home/Header";
 import Tabs from "../../components/Home/Tabs";
 import Tags from "../../components/Home/Tags";
+import useAuthenticate from "../../hooks/use/Authenticate";
 
 interface IHomeProps {}
 
 const Home: React.FunctionComponent<IHomeProps> = (props) => {
+  const isAuthenticate = useAuthenticate();
+
   return (
-    <div>
-      <Header />
+    <div className="mt-8">
+      {!isAuthenticate && <Header />}
       <div className="container flex justify-between items-start">
         <TabsWrapper>
           <Tabs />

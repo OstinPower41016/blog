@@ -19,7 +19,6 @@ const HeaderElement = styled.header`
   color: #ffffff;
   padding: 2rem;
   box-shadow: inset 0 8px 8px -8px rgb(0 0 0 / 30%), inset 0 -8px 8px -8px rgb(0 0 0 / 30%);
-  margin-bottom: 2rem;
 `;
 
 const HElement = styled.h2`

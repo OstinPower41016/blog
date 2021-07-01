@@ -17,6 +17,8 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.0",
+    "@types/react-redux": "^7.1.16",
     "body-parser": "1.15.0",
     "cors": "2.7.1",
     "dotenv": "^10.0.0",
@@ -33,11 +35,14 @@
     "morgan": "1.7.0",
     "passport": "0.3.2",
     "passport-local": "1.0.0",
+    "query-string": "^7.0.1",
+    "react-redux": "^7.2.4",
     "request": "2.69.0",
-    "slug": "0.9.1",
+    "slug": "^5.1.0",
     "underscore": "1.8.3"
   },
   "devDependencies": {
+    "@types/query-string": "^6.3.0",
     "concurrently": "^6.2.0",
     "newman": "^3.8.2",
     "nodemon": "^1.11.0"

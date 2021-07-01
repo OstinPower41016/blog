@@ -1,10 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
+import cn from "classnames";
 
 interface IInputProps {
   type?: string;
   placeholder: string;
   onInput?: any;
+  className?: string;
 }
 
 const Input: React.FunctionComponent<IInputProps> = (props) => {
@@ -13,14 +15,13 @@ const Input: React.FunctionComponent<IInputProps> = (props) => {
     <InputElement
       type={type}
       placeholder={placeholder}
-      className="rounded py-2.5 px-6 w-full"
+      className={cn("rounded py-2.5 px-6 w-full", { [props.className!]: props.className })}
       onInput={onInput}
     />
   );
 };
 
 const InputElement = styled.input`
-  font-size: 1.25rem;
   border: 1px solid #ccc;
   outline: none;
   &:focus {

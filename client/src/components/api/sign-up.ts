@@ -1,4 +1,6 @@
-import axios from "../../axios";
+import axios from "./axios";
+
+import { login } from "./sign-in";
 
 export interface IRequestCreateUser {
   username: string;
@@ -8,9 +10,9 @@ export interface IRequestCreateUser {
 
 export const create = async (userData: IRequestCreateUser) => {
   try {
-    const response = await axios.post("/users", { user: { ...userData } });
-    localStorage.setItem("auth", response.data.user.token);
-    console.log(response.data);
+    await axios.post("/users", { user: { ...userData } });
+    const { username, ...restInfo } = userData;
+    await login(restInfo);
   } catch (error) {
     console.log(error);
   }
