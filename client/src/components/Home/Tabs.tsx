@@ -6,15 +6,25 @@ interface ITabsProps {
   className?: string;
 }
 
+interface ITab {
+  isCurrent: boolean;
+}
+
 const Tabs: React.FunctionComponent<ITabsProps> = (props) => {
+  const [currentTab, setCurrentTab] = React.useState<string>("Global Feed");
+
+  const checkCurrentTab = (text: string) => {
+    return text === currentTab;
+  };
+
   return (
     <div className={cn({ [props.className!]: props.className })}>
       <TabsElement className="flex items-center">
-        <Tab>
-          <TabName>Your Feed</TabName>
+        <Tab isCurrent={checkCurrentTab("Your Feed")}>
+          <TabName onClick={() => setCurrentTab("Your Feed")}>Your Feed</TabName>
         </Tab>
-        <Tab>
-          <TabName>Global Feed</TabName>
+        <Tab isCurrent={checkCurrentTab("Global Feed")}>
+          <TabName onClick={() => setCurrentTab("Global Feed")}>Global Feed</TabName>
         </Tab>
       </TabsElement>
     </div>
@@ -25,16 +35,18 @@ const TabsElement = styled.div`
   width: 100%;
   color: #aaa;
   border-bottom: 1px solid #ccc;
-
-  & > div {
-    margin: 0.5rem 1rem;
-  }
 `;
 
 const Tab = styled.div`
-  transition: 1s;
+  transition: 0.5s;
+  color: ${(props: ITab) => (props.isCurrent ? "#5cb85c" : "inherit")};
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-bottom: ${(props: ITab) => (props.isCurrent ? "2px solid #5cb85c" : "")};
+  cursor: ${(props: ITab) => (!props.isCurrent ? "pointer" : "")};
+  user-select: none;
   &:hover {
-    color: #000;
+    color: ${(props: ITab) => (props.isCurrent ? "" : "#000")};
   }
 `;
 

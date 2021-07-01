@@ -1,10 +1,11 @@
 import * as React from "react";
+import { useHistory } from "react-router-dom";
 
 import TitleForm from "../UI/TitleForm";
 import Input from "../UI/Input";
 import WrapperInput from "../UI/WrapperInput";
 import Button from "../UI/Button";
-import { create, IRequestCreateUser } from "./api-sign-up";
+import { create, IRequestCreateUser } from "../api/sign-up";
 
 interface ISignUpProps {}
 type TInputChangeEvent = React.ChangeEvent<HTMLInputElement>;
@@ -15,6 +16,7 @@ const SignUp: React.FunctionComponent<ISignUpProps> = (props) => {
     email: "",
     password: "",
   });
+  const history = useHistory();
 
   const onInputHandler = (e: TInputChangeEvent, type: string) => {
     setInput({ ...inputs, [type]: e.target.value });
@@ -22,6 +24,7 @@ const SignUp: React.FunctionComponent<ISignUpProps> = (props) => {
 
   const submitButtonHandler = async () => {
     await create({ ...inputs });
+    history.push("/");
   };
 
   return (

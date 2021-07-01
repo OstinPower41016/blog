@@ -10,7 +10,7 @@ interface IButtonProps {
 const Button: React.FunctionComponent<IButtonProps> = (props) => {
   return (
     <ButtonElement
-      className={cn("py-3 px-4 rounded", { [props.className!]: props.className })}
+      className={cn("py-3 px-4 rounded text-xl", { [props.className!]: props.className })}
       onClick={props.onClick}
     >
       {props.children}
@@ -19,9 +19,8 @@ const Button: React.FunctionComponent<IButtonProps> = (props) => {
 };
 
 const ButtonElement = styled.button`
-  background: #5cb85c;
+    background: #5cb85c;
   color: white;
-  font-size: 1.25rem;
   &:disabled {
     opacity: 0.5;
   }
