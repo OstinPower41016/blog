@@ -4,6 +4,8 @@ import cn from "classnames";
 
 interface ITabsProps {
   className?: string;
+  setCurrentTab: (tab: string) => void;
+  currentTab?: string;
 }
 
 interface ITab {
@@ -11,22 +13,27 @@ interface ITab {
 }
 
 const Tabs: React.FunctionComponent<ITabsProps> = (props) => {
-  const [currentTab, setCurrentTab] = React.useState<string>("Global Feed");
-
   const checkCurrentTab = (text: string) => {
     return text === currentTab;
   };
+
+  React.useEffect(() => {
+    setCurrentTab("Global Feed");
+  }, []);
+
+  const { currentTab, setCurrentTab } = props;
 
   return (
     <div className={cn({ [props.className!]: props.className })}>
       <TabsElement className="flex items-center">
         <Tab isCurrent={checkCurrentTab("Your Feed")}>
-          <TabName onClick={() => setCurrentTab("Your Feed")}>Your Feed</TabName>
+          <span onClick={() => setCurrentTab("Your Feed")}>Your Feed</span>
         </Tab>
         <Tab isCurrent={checkCurrentTab("Global Feed")}>
-          <TabName onClick={() => setCurrentTab("Global Feed")}>Global Feed</TabName>
+          <span onClick={() => setCurrentTab("Global Feed")}>Global Feed</span>
         </Tab>
       </TabsElement>
+      {props.children}
     </div>
   );
 };
@@ -34,7 +41,6 @@ const Tabs: React.FunctionComponent<ITabsProps> = (props) => {
 const TabsElement = styled.div`
   width: 100%;
   color: #aaa;
-  border-bottom: 1px solid #ccc;
 `;
 
 const Tab = styled.div`
@@ -49,7 +55,5 @@ const Tab = styled.div`
     color: ${(props: ITab) => (props.isCurrent ? "" : "#000")};
   }
 `;
-
-const TabName = styled.span``;
 
 export default Tabs;

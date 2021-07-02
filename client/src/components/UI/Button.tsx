@@ -19,7 +19,7 @@ const Button: React.FunctionComponent<IButtonProps> = (props) => {
 };
 
 const ButtonElement = styled.button`
-    background: #5cb85c;
+  background: #5cb85c;
   color: white;
   &:disabled {
     opacity: 0.5;

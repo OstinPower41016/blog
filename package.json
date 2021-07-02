@@ -28,6 +28,7 @@
     "express-jwt": "3.3.0",
     "express-session": "1.13.0",
     "jsonwebtoken": "7.1.9",
+    "lodash": "^4.17.21",
     "method-override": "2.3.5",
     "methods": "1.1.2",
     "mongoose": "^5.13.0",
@@ -42,6 +43,7 @@
     "underscore": "1.8.3"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.170",
     "@types/query-string": "^6.3.0",
     "concurrently": "^6.2.0",
     "newman": "^3.8.2",

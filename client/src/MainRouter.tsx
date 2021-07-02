@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Home from "./views/Home";
+import Home from "./views/Home/Home";
 import NavBar from "./components/NavBar";
 import SignIn from "./views/SignIn/SignIn";
 import SignUp from "./views/SignUp";
 import NewArticle from "./views/NewArticle/NewArticle";
 import Article from "./views/Article/Article";
+import ChangeProfile from "./views/ChangeProfile/ChangeProfile";
 import Footer from "./components/Footer";
 
 interface IMainRouterProps {}
@@ -21,8 +22,9 @@ const MainRouter: React.FunctionComponent<IMainRouterProps> = (props) => {
         <Route path="/signup" component={SignUp} />
         <Route path="/editor" component={NewArticle} />
         <Route path="/article/:slug" component={Article} />
+        <Route path="/settings" component={ChangeProfile} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

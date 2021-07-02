@@ -50,7 +50,7 @@ const Article: React.FunctionComponent<IArticleProps> = (props) => {
   return (
     <>
       <ArticleBanner {...forArticleBanner} />
-      <ArticleContent description={description} />
+      <ArticleContent description={description} tagList={tagList}/>
       <div className="flex justify-center items-center mt-3">
         <ArticleUser {...ArticleUserProps} className="mr-4" usernameColor="#5cb85c" />
         <ButtonControlArticle type="Edit" />

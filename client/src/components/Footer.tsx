@@ -44,10 +44,9 @@ const LinkElementWithoutRouter = styled.a`
 `;
 
 const FooterElement = styled.footer`
-  background: #373a3c;
-  position: absolute;
-  bottom: 0;
+  background: #f3f3f3;
   width: 100%;
+  
 `;
 
 export default Footer;

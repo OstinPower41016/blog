@@ -18,9 +18,19 @@ export const create = async (article: any) => {
 
 export const getArticle = async (articleId: string) => {
   try {
-    const response = await (await axios.get(`/articles/${articleId}`)).data;
+    const response = (await axios.get(`/articles/${articleId}`)).data;
 
     return response.article;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getArticles = async () => {
+  try {
+    const response = await (await axios.get(`/articles/`)).data;
+
+    return response;
   } catch (error) {
     console.log(error);
   }

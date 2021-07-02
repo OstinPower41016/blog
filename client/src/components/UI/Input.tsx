@@ -7,16 +7,20 @@ interface IInputProps {
   placeholder: string;
   onInput?: any;
   className?: string;
+  onKeyDown?: any;
+  value?: string;
 }
 
 const Input: React.FunctionComponent<IInputProps> = (props) => {
-  const { type = "text", placeholder, onInput } = props;
+  const { type = "text", placeholder, onInput, onKeyDown, value } = props;
   return (
     <InputElement
       type={type}
       placeholder={placeholder}
       className={cn("rounded py-2.5 px-6 w-full", { [props.className!]: props.className })}
       onInput={onInput}
+      onKeyDown={onKeyDown}
+      value={value}
     />
   );
 };
